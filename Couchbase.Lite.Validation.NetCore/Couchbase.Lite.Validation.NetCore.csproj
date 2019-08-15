@@ -1,0 +1,124 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsMac>false</IsMac>
+    <IsMac Condition=" '$(OS)' == 'Unix' AND Exists('/Library/Frameworks') ">true</IsMac>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
+    <AssemblyName>Couchbase.Lite.Validation.NetCore</AssemblyName>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE;CBL_NO_VERSION_CHECK;COUCHBASE_ENTERPRISE;CBL_NO_EXPENSIVE;</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE;CBL_NO_VERSION_CHECK;COUCHBASE_ENTERPRISE;CBL_NO_EXPENSIVE;</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Support.NetDesktop\Activate.cs" Link="Activate.cs" />
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\couchbase-lite-net\src\Couchbase.Lite.TestCoverage\replacedb\*" Link="replacedb\%(Filename)%(Extension)">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="..\..\..\src\Couchbase.Lite.Enterprise\obj\**" />
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="..\..\..\src\Couchbase.Lite.Enterprise\Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="4.19.4" />
+    <PackageReference Include="GitInfo" Version="2.0.20">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="Microsoft.Win32.Registry" Version="4.5.0" />
+    <PackageReference Include="SimpleInjector" Version="4.6.2" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <Import Project="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\..\..\couchbase-lite-net\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems" Label="Shared" />
+
+  <ItemGroup Condition=" ('$(OS)' == 'Windows_NT' OR $(Configuration.Contains('Packaging'))) AND '$(JUST_CSHARP)' == '' ">
+    <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x86\Debug\LiteCore.dll">
+      <Link>x86\LiteCore.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x86\Debug\LiteCore.pdb">
+      <Link>x86\LiteCore.pdb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x64\Debug\LiteCore.dll">
+      <Link>x64\LiteCore.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x64\Debug\LiteCore.pdb">
+      <Link>x64\LiteCore.pdb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup Condition=" ($(IsMac) OR $(Configuration.Contains('Packaging'))) AND '$(JUST_CSHARP)' == ''  ">
+    <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\libLiteCore.dylib">
+      <Link>libLiteCore.dylib</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup Condition=" ((!$(IsMac) AND '$(OS)' == 'Unix') OR $(Configuration.Contains('Packaging'))) AND '$(JUST_CSHARP)' == '' ">
+    <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\libLiteCore.so">
+      <Link>libLiteCore.so</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\libc++.so.1">
+      <Link>libc++.so.1</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\libc++abi.so.1">
+      <Link>libc++abi.so.1</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\libicudata.so.54">
+      <Link>libicudata.so.54</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\libicui18n.so.54">
+      <Link>libicui18n.so.54</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\libicuuc.so.54">
+      <Link>libicuuc.so.54</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

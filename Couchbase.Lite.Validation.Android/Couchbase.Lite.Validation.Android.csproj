@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{84dd83c5-0fe3-4294-9419-09e7c8ba324f}</TemplateGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Couchbase.Lite.Validation.Android</RootNamespace>
+    <AssemblyName>Couchbase.Lite.Validation.Android</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CBL_NO_EXTERN_FILES;COUCHBASE_ENTERPRISE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>PdbOnly</DebugType>
+    <DebugSymbols>True</DebugSymbols>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;CBL_NO_EXTERN_FILES;COUCHBASE_ENTERPRISE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidManagedSymbols>true</AndroidManagedSymbols>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="result_ip">
+      <LogicalName>result_ip</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Support.Android\Activate.cs">
+      <Link>Activate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\Database\Database.cs">
+      <Link>API\Database\\Database.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\Database\EncryptionKey.cs">
+      <Link>API\Database\\EncryptionKey.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\P2P\IMessageEndpointConnection.cs">
+      <Link>API\P2P\\IMessageEndpointConnection.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\P2P\IMessageEndpointDelegate.cs">
+      <Link>API\P2P\\IMessageEndpointDelegate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\P2P\IReplicatorConnection.cs">
+      <Link>API\P2P\\IReplicatorConnection.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\P2P\Message.cs">
+      <Link>API\P2P\\Message.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\P2P\MessageEndpoint.cs">
+      <Link>API\P2P\\MessageEndpoint.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\P2P\MessageEndpointListener.cs">
+      <Link>API\P2P\\MessageEndpointListener.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\P2P\MessageEndpointListenerChangedEventArgs.cs">
+      <Link>API\P2P\\MessageEndpointListenerChangedEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\P2P\MessageEndpointListenerConfiguration.cs">
+      <Link>API\P2P\\MessageEndpointListenerConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\P2P\MessagingException.cs">
+      <Link>API\P2P\\MessagingException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\P2P\ProtocolType.cs">
+      <Link>API\P2P\\ProtocolType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\Query\Function.cs">
+      <Link>API\Query\\Function.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\Query\IndexBuilder.cs">
+      <Link>API\Query\\IndexBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\Query\IPredictiveIndex.cs">
+      <Link>API\Query\\IPredictiveIndex.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\Query\Prediction.cs">
+      <Link>API\Query\\Prediction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\API\Sync\DatabaseEndpoint.cs">
+      <Link>API\Sync\\DatabaseEndpoint.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\Extensions\ExceptionExtensions.cs">
+      <Link>Extensions\\ExceptionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\P2P\ByteArrayMessage.cs">
+      <Link>P2P\\ByteArrayMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\P2P\CouchbaseSocket.cs">
+      <Link>P2P\\CouchbaseSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\Properties\AssemblyInfo.cs">
+      <Link>Properties\\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\Properties\DynamicAssemblyInfo.cs">
+      <Link>Properties\\DynamicAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\Query\QueryCompoundExpression.cs">
+      <Link>Query\\QueryCompoundExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\Query\QueryIndex.cs">
+      <Link>Query\\QueryIndex.cs</Link>
+    </Compile>
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="..\..\..\src\Couchbase.Lite.Enterprise\obj\**" />
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidNativeLibrary Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\android\lib\armeabi-v7a\libLiteCore.so">
+      <Link>armeabi-v7a\libLiteCore.so</Link>
+    </AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\android\lib\x86\libLiteCore.so">
+      <Link>x86\libLiteCore.so</Link>
+    </AndroidNativeLibrary>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Assets\AboutAssets.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_main.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\content_main.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\values\dimens.xml" />
+    <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
+    <AndroidResource Include="Resources\values\strings.xml" />
+    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\menu\menu_main.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher_round.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions">
+      <Version>4.19.4</Version>
+    </PackageReference>
+    <PackageReference Include="GitInfo">
+      <Version>2.0.20</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="SimpleInjector">
+      <Version>4.6.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2" />
+    <PackageReference Include="xunit">
+      <Version>2.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="xunit.runner.devices">
+      <Version>2.5.25</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems" Label="Shared" />
+  <Import Project="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems" Label="Shared" />
+  <Import Project="..\..\..\couchbase-lite-net\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems" Label="Shared" />
+  <Import Project="..\..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems" Label="Shared" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+    Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+  -->
+</Project>
