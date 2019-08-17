@@ -3102,9 +3102,6 @@ namespace Couchbase.Lite.Validation.Android
 			// aapt resource value: 0x7f09005c
 			public const int action_mode_close_button = 2131296348;
 			
-			// aapt resource value: 0x7f0900cb
-			public const int action_settings = 2131296459;
-			
 			// aapt resource value: 0x7f0900b7
 			public const int action_text = 2131296439;
 			
@@ -3943,22 +3940,6 @@ namespace Couchbase.Lite.Validation.Android
 			}
 		}
 		
-		public partial class Menu
-		{
-			
-			// aapt resource value: 0x7f0f0000
-			public const int menu_main = 2131689472;
-			
-			static Menu()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
-			private Menu()
-			{
-			}
-		}
-		
 		public partial class Mipmap
 		{
 			
@@ -4070,12 +4051,6 @@ namespace Couchbase.Lite.Validation.Android
 			
 			// aapt resource value: 0x7f0a0025
 			public const int abc_toolbar_collapse_description = 2131361829;
-			
-			// aapt resource value: 0x7f0a003d
-			public const int action_settings = 2131361853;
-			
-			// aapt resource value: 0x7f0a003c
-			public const int app_name = 2131361852;
 			
 			// aapt resource value: 0x7f0a0033
 			public const int appbar_scrolling_view_behavior = 2131361843;
