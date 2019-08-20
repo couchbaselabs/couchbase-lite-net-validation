@@ -71,19 +71,19 @@
   <Import Project="..\..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems" Label="Shared" />
 
   <ItemGroup Condition=" ('$(OS)' == 'Windows_NT' OR $(Configuration.Contains('Packaging'))) AND '$(JUST_CSHARP)' == '' ">
-    <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x86\Debug\LiteCore.dll">
+    <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x86\RelWithDebInfo\LiteCore.dll">
       <Link>x86\LiteCore.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x86\Debug\LiteCore.pdb">
+    <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x86\RelWithDebInfo\LiteCore.pdb">
       <Link>x86\LiteCore.pdb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x64\Debug\LiteCore.dll">
+    <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x64\RelWithDebInfo\LiteCore.dll">
       <Link>x64\LiteCore.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x64\Debug\LiteCore.pdb">
+    <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x64\RelWithDebInfo\LiteCore.pdb">
       <Link>x64\LiteCore.pdb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
