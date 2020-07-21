@@ -72,6 +72,27 @@
       <Link>Activate.cs</Link>
     </Compile>
     <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\**\*.cs" />
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\Extensions\ExceptionExtensions.cs">
+      <Link>Extensions\\ExceptionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\P2P\ByteArrayMessage.cs">
+      <Link>P2P\\ByteArrayMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\P2P\CouchbaseSocket.cs">
+      <Link>P2P\\CouchbaseSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\Properties\AssemblyInfo.cs">
+      <Link>Properties\\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\Properties\DynamicAssemblyInfo.cs">
+      <Link>Properties\\DynamicAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\Query\QueryCompoundExpression.cs">
+      <Link>Query\\QueryCompoundExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\Query\QueryIndex.cs">
+      <Link>Query\\QueryIndex.cs</Link>
+    </Compile>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
   </ItemGroup>
