@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Couchbase.Lite.Shared", "..\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.shproj", "{9B92B9D6-5DD3-477A-883B-1B40D5DEEF3B}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Couchbase.Lite.Shared", "..\..\couchbase-lite-net\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.shproj", "{9B92B9D6-5DD3-477A-883B-1B40D5DEEF3B}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Couchbase.Lite.Tests.Shared", "..\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.shproj", "{11F38891-8397-49B4-9146-6DAF0A9D7866}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Couchbase.Lite.Tests.Shared", "..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.shproj", "{11F38891-8397-49B4-9146-6DAF0A9D7866}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LiteCore.Shared", "..\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.shproj", "{C37DC024-8762-4BE4-9034-B2B5970C652C}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LiteCore.Shared", "..\..\couchbase-lite-net\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.shproj", "{C37DC024-8762-4BE4-9034-B2B5970C652C}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LiteCore.Tests.Shared", "..\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.shproj", "{6EC40F09-4C86-4F51-9F0E-C4397601A567}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LiteCore.Tests.Shared", "..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.shproj", "{6EC40F09-4C86-4F51-9F0E-C4397601A567}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Couchbase.Lite.Validation.NetCore", "Couchbase.Lite.Validation.NetCore\Couchbase.Lite.Validation.NetCore.csproj", "{4F190F30-AD02-4B74-9C44-08BA5410A3CB}"
 EndProject
@@ -21,22 +21,22 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Couchbase.Lite.Validation.i
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems*{101e3060-8799-4119-8a7a-4f86a01c0c84}*SharedItemsImports = 4
-		..\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems*{101e3060-8799-4119-8a7a-4f86a01c0c84}*SharedItemsImports = 4
-		..\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems*{101e3060-8799-4119-8a7a-4f86a01c0c84}*SharedItemsImports = 4
-		..\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems*{101e3060-8799-4119-8a7a-4f86a01c0c84}*SharedItemsImports = 4
-		..\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems*{11f38891-8397-49b4-9146-6daf0a9d7866}*SharedItemsImports = 13
-		..\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems*{3bc0ac7e-3b3b-4d3f-9cc0-b2bdecc460a6}*SharedItemsImports = 4
-		..\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems*{3bc0ac7e-3b3b-4d3f-9cc0-b2bdecc460a6}*SharedItemsImports = 4
-		..\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems*{3bc0ac7e-3b3b-4d3f-9cc0-b2bdecc460a6}*SharedItemsImports = 4
-		..\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems*{3bc0ac7e-3b3b-4d3f-9cc0-b2bdecc460a6}*SharedItemsImports = 4
-		..\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems*{6ec40f09-4c86-4f51-9f0e-c4397601a567}*SharedItemsImports = 13
-		..\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems*{7917c00d-fa58-4c45-8d8f-671dd2f6d9db}*SharedItemsImports = 4
-		..\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems*{7917c00d-fa58-4c45-8d8f-671dd2f6d9db}*SharedItemsImports = 4
-		..\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems*{7917c00d-fa58-4c45-8d8f-671dd2f6d9db}*SharedItemsImports = 4
-		..\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems*{7917c00d-fa58-4c45-8d8f-671dd2f6d9db}*SharedItemsImports = 4
-		..\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems*{9b92b9d6-5dd3-477a-883b-1b40d5deef3b}*SharedItemsImports = 13
-		..\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems*{c37dc024-8762-4be4-9034-b2b5970c652c}*SharedItemsImports = 13
+		..\..\couchbase-lite-net\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems*{101e3060-8799-4119-8a7a-4f86a01c0c84}*SharedItemsImports = 4
+		..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems*{101e3060-8799-4119-8a7a-4f86a01c0c84}*SharedItemsImports = 4
+		..\..\couchbase-lite-net\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems*{101e3060-8799-4119-8a7a-4f86a01c0c84}*SharedItemsImports = 4
+		..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems*{101e3060-8799-4119-8a7a-4f86a01c0c84}*SharedItemsImports = 4
+		..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems*{11f38891-8397-49b4-9146-6daf0a9d7866}*SharedItemsImports = 13
+		..\..\couchbase-lite-net\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems*{3bc0ac7e-3b3b-4d3f-9cc0-b2bdecc460a6}*SharedItemsImports = 4
+		..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems*{3bc0ac7e-3b3b-4d3f-9cc0-b2bdecc460a6}*SharedItemsImports = 4
+		..\..\couchbase-lite-net\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems*{3bc0ac7e-3b3b-4d3f-9cc0-b2bdecc460a6}*SharedItemsImports = 4
+		..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems*{3bc0ac7e-3b3b-4d3f-9cc0-b2bdecc460a6}*SharedItemsImports = 4
+		..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems*{6ec40f09-4c86-4f51-9f0e-c4397601a567}*SharedItemsImports = 13
+		..\..\couchbase-lite-net\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems*{7917c00d-fa58-4c45-8d8f-671dd2f6d9db}*SharedItemsImports = 4
+		..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems*{7917c00d-fa58-4c45-8d8f-671dd2f6d9db}*SharedItemsImports = 4
+		..\..\couchbase-lite-net\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems*{7917c00d-fa58-4c45-8d8f-671dd2f6d9db}*SharedItemsImports = 4
+		..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems*{7917c00d-fa58-4c45-8d8f-671dd2f6d9db}*SharedItemsImports = 4
+		..\..\couchbase-lite-net\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems*{9b92b9d6-5dd3-477a-883b-1b40d5deef3b}*SharedItemsImports = 13
+		..\..\couchbase-lite-net\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems*{c37dc024-8762-4be4-9034-b2b5970c652c}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
