@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.757
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Couchbase.Lite.Shared", "..\..\couchbase-lite-net\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.shproj", "{9B92B9D6-5DD3-477A-883B-1B40D5DEEF3B}"
 EndProject
