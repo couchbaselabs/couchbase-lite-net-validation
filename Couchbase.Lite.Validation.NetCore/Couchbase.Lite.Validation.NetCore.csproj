@@ -34,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\couchbase-lite-net\src\Couchbase.Lite.TestCoverage\replacedb\*" Link="replacedb\%(Filename)%(Extension)">
+    <None Include="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\replacedb\*" Link="replacedb\%(Filename)%(Extension)">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
