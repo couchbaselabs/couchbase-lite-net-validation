@@ -1,0 +1,169 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+    <Platforms>AnyCPU;iPhoneSimulator;iPhone;x64;arm64;x86_64;armeabi-v7a;arm64-v8a;x86</Platforms>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Couchbase.Lite.Tests.Maui</RootNamespace>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Configurations>Debug;PackagingDebug;Packaging</Configurations>
+
+    <!-- Display name -->
+    <ApplicationTitle>CBL Maui</ApplicationTitle>
+
+    <!-- App Identifier -->
+    <ApplicationId>couchbase.lite.tests.maui</ApplicationId>
+    <ApplicationIdGuid>dc43cb8e-f548-4e58-8d30-a17f0a07e0eb</ApplicationIdGuid>
+
+    <!-- Versions -->
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">10.15</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">22.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</SupportedOSPlatformVersion>
+    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</TargetPlatformMinVersion>
+
+  </PropertyGroup>
+
+  <!-- App Icon -->
+  <ItemGroup>
+    <MauiIcon Include="Resources\appicon.svg" ForegroundFile="Resources\appiconfg.svg" Color="#512BD4" />
+    <MauiSplashScreen Include="Resources\appiconfg.svg" Color="#512BD4" BaseSize="128,128" />
+  </ItemGroup>
+  
+  <!-- Raw Assets -->
+  <ItemGroup>
+    <MauiAsset Include="Platforms\Android\Resources\raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+    <MauiAsset Include="..\..\src\Couchbase.Lite.Tests.Shared\C\tests\data\**" LogicalName="%(Filename)%(Extension)" />
+    <MauiAsset Include="..\..\src\Couchbase.Lite.Tests.Shared\replacedb\**" LogicalName="replacedb\%(RecursiveDir)%(Filename)%(Extension)" />
+    <MauiAsset Include="..\..\vendor\couchbase-lite-core\C\tests\data\iTunesMusicLibrary.json" LogicalName="iTunesMusicLibrary.json" />
+    <MauiAsset Include="..\..\vendor\couchbase-lite-core\C\tests\data\*.*" LogicalName="C\tests\data\%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="modify_packages.ps1" />
+    <None Remove="modify_packages.sh" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Configuration)'=='PackagingDebug'">
+    <PackageReference Include="Couchbase.Lite.Enterprise.Debug" Version="3.1.0-b0154" />
+    <PackageReference Include="Couchbase.Lite.Enterprise.Support.Android.Debug" Version="3.1.0-b0154" targetFramework="net6.0-android31" Condition="'$(TargetFramework)'=='net6.0-android'" />
+    <PackageReference Include="Couchbase.Lite.Enterprise.Support.iOS.Debug" Version="3.1.0-b0154" targetFramework="net6.0-ios14.2" Condition="'$(TargetFramework)'=='net6.0-ios'" />
+    <PackageReference Include="Couchbase.Lite.Enterprise.Support.iOS.Debug" Version="3.1.0-b0154" targetFramework="net6.0-maccatalyst14.2" Condition="'$(TargetFramework)'=='net6.0-maccatalyst'" />
+    <PackageReference Include="Couchbase.Lite.Enterprise.Support.WinUI.Debug" Version="3.1.0-b0154" targetFramework="net6.0-windows10.0.19041.0" Condition="'$(TargetFramework)'=='net6.0-windows10.0.19041.0'" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Configuration)'=='Packaging'">
+    <PackageReference Include="Couchbase.Lite.Enterprise" Version="3.1.0-b0154" />
+    <PackageReference Include="Couchbase.Lite.Enterprise.Support.Android" Version="3.1.0-b0154" targetFramework="net6.0-android31" Condition="'$(TargetFramework)'=='net6.0-android'" />
+    <PackageReference Include="Couchbase.Lite.Enterprise.Support.iOS" Version="3.1.0-b0154" targetFramework="net6.0-ios14.2" Condition="'$(TargetFramework)'=='net6.0-ios'" />
+    <PackageReference Include="Couchbase.Lite.Enterprise.Support.iOS" Version="3.1.0-b0154" targetFramework="net6.0-maccatalyst14.2" Condition="'$(TargetFramework)'=='net6.0-maccatalyst'" />
+    <PackageReference Include="Couchbase.Lite.Enterprise.Support.WinUI" Version="3.1.0-b0154" targetFramework="net6.0-windows10.0.19041.0" Condition="'$(TargetFramework)'=='net6.0-windows10.0.19041.0'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Shiny.Xunit.Runners.Maui" Version="1.0.0" />
+    <PackageReference Include="FluentAssertions" Version="6.7.0" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="6.0.0" />
+    <PackageReference Include="SimpleInjector" Version="5.4.1" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
+    <PackageReference Include="Microsoft.DotNet.XHarness.TestRunners.Xunit" Version="1.0.0-prerelease.22620.1" />
+    <PackageReference Include="Microsoft.DotNet.XHarness.TestRunners.Common" Version="1.0.0-prerelease.22620.1" />
+  </ItemGroup>
+
+  <!-- Android -->
+  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)'=='net6.0-android'">
+    <DefineConstants>DEBUG;TRACE;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET6_0_ANDROID</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)'=='Packaging|net6.0-android'">
+    <DefineConstants>TRACE;LITECORE_PACKAGED;NET6_0_ANDROID;COUCHBASE_ENTERPRISE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(Configuration)|$(TargetFramework)'=='Debug|net6.0-android'">
+    <AndroidNativeLibrary Condition="'$(Platform)' == 'x86_64' or '$(Platform)' == 'armeabi-v7a' or '$(Platform)' == 'arm64-v8a' or '$(Platform)' == 'x86'" Include="..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\android\lib\$(Platform)\libLiteCore.so">
+      <Link>Platforms\Android\$(Platform)\libLiteCore.so</Link>
+    </AndroidNativeLibrary>
+    <AndroidNativeLibrary Condition="'$(Platform)' == 'AnyCPU'" Include="..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\android\lib\x86_64\libLiteCore.so">
+      <Link>Platforms\Android\x86_64\libLiteCore.so</Link>
+    </AndroidNativeLibrary>
+  </ItemGroup>
+  <!-- End Android-->
+  
+  <!-- Windows -->
+  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)'=='net6.0-windows10.0.19041.0'">
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;NET6_0_WINDOWS10;COUCHBASE_ENTERPRISE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)'=='Packaging|net6.0-windows10.0.19041.0'">
+    <DefineConstants>TRACE;NETFX_CORE;NET6_0_WINDOWS10;COUCHBASE_ENTERPRISE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(Configuration)|$(TargetFramework)'=='Debug|net6.0-windows10.0.19041.0'">
+    <Content Condition="'$(Platform)' == 'x64' or '$(Platform)' == 'AnyCPU'" Include="$(MSBuildThisFileDirectory)..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x64\RelWithDebInfo\LiteCore.dll">
+      <Link>LiteCore.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Condition="'$(Platform)' == 'x64' or '$(Platform)' == 'AnyCPU'" Include="$(MSBuildThisFileDirectory)..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x64\RelWithDebInfo\LiteCore.pdb">
+      <Link>LiteCore.pdb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Condition="'$(Platform)' == 'arm64'" Include="$(MSBuildThisFileDirectory)..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\arm64\RelWithDebInfo\LiteCore.dll">
+      <Link>LiteCore.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Condition="'$(Platform)' == 'arm64'" Include="$(MSBuildThisFileDirectory)..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\arm64\RelWithDebInfo\LiteCore.pdb">
+      <Link>LiteCore.pdb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <!-- End Windows-->
+
+  <!-- Apple -->
+  <ItemGroup Condition="'$(Configuration)'=='Debug' and ('$(TargetFramework)' == 'net6.0-ios' or '$(TargetFramework)' == 'net6.0-maccatalyst')">
+    <NativeReference Include="..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\ios-fat\LiteCore.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+  </ItemGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)' == 'Packaging|net6.0-ios' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
+    <DefineConstants>TRACE;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET6_0_APPLE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)' == 'net6.0-ios' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
+    <DefineConstants>TRACE;DEBUG;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET6_0_APPLE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)' == 'Packaging|net6.0-maccatalyst' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
+    <DefineConstants>TRACE;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET6_0_APPLE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)' == 'net6.0-maccatalyst' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
+    <DefineConstants>TRACE;DEBUG;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET6_0_APPLE</DefineConstants>
+  </PropertyGroup>
+  <!-- End Apple -->
+  
+  <!-- ex: dotnet build -p:ExtraDefineConstants=RUN_HEADLESS -->
+  <PropertyGroup>
+    <DefineConstants Condition=" '$(ExtraDefineConstants)' != '' ">$(DefineConstants);$(ExtraDefineConstants)</DefineConstants>
+  </PropertyGroup>
+
+  <Import Project="..\..\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems" Label="Shared" />
+  <Import Project="..\..\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems" Label="Shared" />
+
+</Project>
