@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Couchbase.Lite.Tests.WinUI (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Couchbase.Lite.Tests.WinUI (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
