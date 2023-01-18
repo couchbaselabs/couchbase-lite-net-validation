@@ -8,10 +8,6 @@ if(-Not $VSInstall) {
 $MSBuild = "$VSInstall\MSBuild\Current\Bin\MSBuild.exe"
 $VSTest = "$VSInstall\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe"
 
-cd Couchbase.Lite.Tests.WinUI
-
-.\modify_packages.ps1 -Version $Env:VERSION
-
 # Build and Test CBL debug CI nuget package
 
 Remove-Item -Recurse -Force obj/ -ErrorAction Ignore
