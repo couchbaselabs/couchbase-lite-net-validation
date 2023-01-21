@@ -17,9 +17,8 @@ namespace Couchbase.Lite.Tests.Maui
             
 #if RUN_HEADLESS
 
-            builder.UseMauiApp<App>();
-
             #if ANDROID
+            builder.UseMauiApp<App>();
             builder.Services.AddTransient(svc => new HeadlessTestRunner("testresults.xml"));
             #elif IOS
             var runnerOptions = new HeadlessRunnerOptions

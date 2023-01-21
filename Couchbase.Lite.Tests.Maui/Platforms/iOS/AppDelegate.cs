@@ -45,18 +45,6 @@ namespace Couchbase.Lite.Tests.Maui
             }
         }
 
-#else
-
-        //HeadlessTestRunner runner = null;
-
-        //public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
-        //{
-        //    runner = AppDelegate.Current.Services.GetRequiredService<HeadlessTestRunner>();
-        //    _ = runner.RunTestsAsync();
-            
-        //    return base.FinishedLaunching(application, launchOptions);
-        //}
-
 #endif
 
         protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
