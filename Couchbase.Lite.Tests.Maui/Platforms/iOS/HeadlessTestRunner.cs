@@ -59,7 +59,6 @@ namespace Couchbase.Lite.Tests.Maui
                     $"Ignored: {results.SkippedTests}";
 
                 Console.WriteLine(message);
-                TerminateWithSuccess();
             }
         }
     }

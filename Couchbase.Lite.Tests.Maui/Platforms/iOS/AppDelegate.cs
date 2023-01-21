@@ -9,7 +9,11 @@ using Xunit.Runners.Maui.VisualRunner;
 namespace Couchbase.Lite.Tests.Maui
 {
     [Register("AppDelegate")]
+#if RUN_HEADLESS
+    public class AppDelegate : MauiTestApplicationDelegate
+#else
     public class AppDelegate : MauiUIApplicationDelegate
+#endif
     {
 
 #if !RUN_HEADLESS
@@ -43,15 +47,15 @@ namespace Couchbase.Lite.Tests.Maui
 
 #else
 
-        HeadlessTestRunner runner = null;
+        //HeadlessTestRunner runner = null;
 
-        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
-        {
-            runner = AppDelegate.Current.Services.GetRequiredService<HeadlessTestRunner>();
-            _ = runner.RunTestsAsync();
+        //public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+        //{
+        //    runner = AppDelegate.Current.Services.GetRequiredService<HeadlessTestRunner>();
+        //    _ = runner.RunTestsAsync();
             
-            return base.FinishedLaunching(application, launchOptions);
-        }
+        //    return base.FinishedLaunching(application, launchOptions);
+        //}
 
 #endif
 
