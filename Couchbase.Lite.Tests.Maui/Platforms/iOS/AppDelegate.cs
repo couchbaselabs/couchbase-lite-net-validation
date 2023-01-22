@@ -67,6 +67,15 @@ namespace Couchbase.Lite.Tests.Maui
 
         readonly static Dictionary<string, string?> EnvVars = new();
 
+        static AppDelegate()
+        {
+            // copy into dictionary for later
+            foreach (var envvar in EnvVarNames)
+            {
+                EnvVars[envvar] = Environment.GetEnvironmentVariable(envvar);
+            }
+        }
+
         public override bool WillFinishLaunching(UIApplication application, NSDictionary launchOptions)
         {
             SetEnvironmentVariables();
