@@ -9,11 +9,7 @@ using Xunit.Runners.Maui.VisualRunner;
 namespace Couchbase.Lite.Tests.Maui
 {
     [Register("AppDelegate")]
-#if RUN_HEADLESS
-    public class AppDelegate : MauiTestApplicationDelegate
-#else
     public class AppDelegate : MauiUIApplicationDelegate
-#endif
     {
 
 #if !RUN_HEADLESS
@@ -42,6 +38,56 @@ namespace Couchbase.Lite.Tests.Maui
             if (!_testStarted) {
                 _testStarted = true;
                 command.Execute(() => !isBusy);
+            }
+        }
+
+#else
+
+        HeadlessTestRunner runner = null;
+        // TODO: https://github.com/xamarin/xamarin-macios/issues/12555
+        readonly static string[] EnvVarNames = {
+            "NUNIT_AUTOSTART",
+            "NUNIT_AUTOEXIT",
+            "NUNIT_ENABLE_NETWORK",
+            "DISABLE_SYSTEM_PERMISSION_TESTS",
+            "NUNIT_HOSTNAME",
+            "NUNIT_TRANSPORT",
+            "NUNIT_LOG_FILE",
+            "NUNIT_HOSTPORT",
+            "USE_TCP_TUNNEL",
+            "RUN_END_TAG",
+            "NUNIT_ENABLE_XML_OUTPUT",
+            "NUNIT_ENABLE_XML_MODE",
+            "NUNIT_XML_VERSION",
+            "NUNIT_SORTNAMES",
+            "NUNIT_RUN_ALL",
+            "NUNIT_SKIPPED_METHODS",
+            "NUNIT_SKIPPED_CLASSES",
+        };
+
+        readonly static Dictionary<string, string?> EnvVars = new();
+
+        public override bool WillFinishLaunching(UIApplication application, NSDictionary launchOptions)
+        {
+            SetEnvironmentVariables();
+            return base.WillFinishLaunching(application, launchOptions);
+        }
+
+        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+        {
+            runner = AppDelegate.Current.Services.GetRequiredService<HeadlessTestRunner>();
+            _ = runner.RunTestsAsync();
+
+            return base.FinishedLaunching(application, launchOptions);
+        }
+
+        static void SetEnvironmentVariables()
+        {
+            // read from dictionary
+            foreach (var envvar in EnvVars)
+            {
+                Console.WriteLine($"  {envvar.Key} = '{envvar.Value}'");
+                Environment.SetEnvironmentVariable(envvar.Key, envvar.Value);
             }
         }
 
