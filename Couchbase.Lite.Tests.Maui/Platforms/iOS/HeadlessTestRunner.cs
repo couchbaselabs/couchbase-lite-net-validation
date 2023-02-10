@@ -43,9 +43,11 @@ namespace Couchbase.Lite.Tests.Maui
 
         public async Task RunTestsAsync()
         {
+            TestStarted += OnTestStarted;
+            TestCompleted += OnTestCompleted;
             TestsCompleted += OnTestsCompleted;
 
-            await RunAsync();
+            await RunAsync().ConfigureAwait(false);
 
             TestsCompleted -= OnTestsCompleted;
 
@@ -59,6 +61,16 @@ namespace Couchbase.Lite.Tests.Maui
                     $"Ignored: {results.SkippedTests}";
 
                 Console.WriteLine(message);
+            }
+
+            void OnTestCompleted(object sender, (string name, TestResult result) arg)
+            {
+                Console.WriteLine($"[{arg.result}] {arg.name}");
+            }
+
+            void OnTestStarted(object sender, string name)
+            {
+                Console.WriteLine($"{name} started!");
             }
         }
     }

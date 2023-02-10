@@ -5,9 +5,11 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Couchbase.Lite.Tests.Maui", "Couchbase.Lite.Tests.Maui.csproj", "{BF529573-0406-4888-A0B9-A03C9EE3D895}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Couchbase.Lite.Tests.Shared", "..\..\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.shproj", "{11F38891-8397-49B4-9146-6DAF0A9D7866}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Couchbase.Lite.Tests.Shared", "..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.shproj", "{11F38891-8397-49B4-9146-6DAF0A9D7866}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LiteCore.Tests.Shared", "..\..\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.shproj", "{6EC40F09-4C86-4F51-9F0E-C4397601A567}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LiteCore.Tests.Shared", "..\..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.shproj", "{6EC40F09-4C86-4F51-9F0E-C4397601A567}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Couchbase.Lite.Enterprise", "..\..\..\src\Couchbase.Lite.Enterprise\Couchbase.Lite.Enterprise.csproj", "{71EF1851-A7EF-44A1-8A5D-128AE6B43077}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,6 +86,42 @@ Global
 		{BF529573-0406-4888-A0B9-A03C9EE3D895}.Release|x64.ActiveCfg = Release|Any CPU
 		{BF529573-0406-4888-A0B9-A03C9EE3D895}.Release|x64.Build.0 = Release|Any CPU
 		{BF529573-0406-4888-A0B9-A03C9EE3D895}.Release|x64.Deploy.0 = Release|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Debug_Coverage|Any CPU.ActiveCfg = Debug_Coverage|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Debug_Coverage|Any CPU.Build.0 = Debug_Coverage|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Debug_Coverage|arm64.ActiveCfg = Debug_Coverage|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Debug_Coverage|arm64.Build.0 = Debug_Coverage|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Debug_Coverage|x64.ActiveCfg = Debug_Coverage|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Debug_Coverage|x64.Build.0 = Debug_Coverage|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Debug|arm64.Build.0 = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Debug|x64.Build.0 = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Packaging|Any CPU.ActiveCfg = Release|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Packaging|Any CPU.Build.0 = Release|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Packaging|arm64.ActiveCfg = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Packaging|arm64.Build.0 = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Packaging|x64.ActiveCfg = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Packaging|x64.Build.0 = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.PackagingDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.PackagingDebug|Any CPU.Build.0 = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.PackagingDebug|arm64.ActiveCfg = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.PackagingDebug|arm64.Build.0 = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.PackagingDebug|x64.ActiveCfg = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.PackagingDebug|x64.Build.0 = Debug|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Release_Coverage|Any CPU.ActiveCfg = Release_Coverage|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Release_Coverage|Any CPU.Build.0 = Release_Coverage|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Release_Coverage|arm64.ActiveCfg = Release_Coverage|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Release_Coverage|arm64.Build.0 = Release_Coverage|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Release_Coverage|x64.ActiveCfg = Release_Coverage|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Release_Coverage|x64.Build.0 = Release_Coverage|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Release|arm64.ActiveCfg = Release|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Release|arm64.Build.0 = Release|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Release|x64.ActiveCfg = Release|Any CPU
+		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

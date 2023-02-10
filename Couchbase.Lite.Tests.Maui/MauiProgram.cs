@@ -21,7 +21,7 @@ namespace Couchbase.Lite.Tests.Maui
 
             #if ANDROID
             builder.Services.AddTransient(svc => new HeadlessTestRunner("testresults.xml"));
-            #elif IOS
+            #else
             var runnerOptions = new HeadlessRunnerOptions
             {
                 RequiresUIContext = true

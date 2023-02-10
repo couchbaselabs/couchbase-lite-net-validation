@@ -85,7 +85,7 @@ namespace Couchbase.Lite.Tests.Maui
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             runner = AppDelegate.Current.Services.GetRequiredService<HeadlessTestRunner>();
-            _ = runner.RunTestsAsync();
+            _ = runner.RunTestsAsync().ConfigureAwait(false);
 
             return base.FinishedLaunching(application, launchOptions);
         }
