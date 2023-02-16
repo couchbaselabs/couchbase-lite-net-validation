@@ -4,7 +4,7 @@
     <IsMac Condition=" '$(OS)' == 'Unix' AND Exists('/Library/Frameworks') ">true</IsMac>
   </PropertyGroup>
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net6.0</TargetFrameworks>
+    <TargetFramework>net6.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
 
@@ -105,15 +105,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\libicudata.so.54">
-      <Link>libicudata.so.54</Link>
+      <Link>libicudata.so.71</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\libicui18n.so.54">
-      <Link>libicui18n.so.54</Link>
+      <Link>libicui18n.so.71</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\libicuuc.so.54">
-      <Link>libicuuc.so.54</Link>
+      <Link>libicuuc.so.71</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
