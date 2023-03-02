@@ -19,13 +19,11 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <Content Include="Platforms\Android\Resources\raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-    <Content Include="..\..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\C\tests\data\**" LogicalName="%(Filename)%(Extension)" />
-    <Content Include="..\..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\replacedb\**" LogicalName="replacedb\%(RecursiveDir)%(Filename)%(Extension)">
+    <Content Include="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\C\tests\data\**" LogicalName="%(Filename)%(Extension)" />
+    <Content Include="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\replacedb\**" LogicalName="replacedb\%(RecursiveDir)%(Filename)%(Extension)">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\C\tests\data\iTunesMusicLibrary.json" LogicalName="iTunesMusicLibrary.json" />
-    <Content Include="..\..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\C\tests\data\*.*" LogicalName="C\tests\data\%(Filename)%(Extension)" />
+    <Content Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\C\tests\data\*.*" LogicalName="C\tests\data\%(Filename)%(Extension)" />
   </ItemGroup>
 
     <ItemGroup>
