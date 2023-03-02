@@ -20,13 +20,24 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="Platforms\Android\Resources\raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-    <Content Include="..\..\src\Couchbase.Lite.Tests.Shared\C\tests\data\**" LogicalName="%(Filename)%(Extension)" />
-    <Content Include="..\..\src\Couchbase.Lite.Tests.Shared\replacedb\**" LogicalName="replacedb\%(RecursiveDir)%(Filename)%(Extension)">
+    <Content Include="..\..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\C\tests\data\**" LogicalName="%(Filename)%(Extension)" />
+    <Content Include="..\..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\replacedb\**" LogicalName="replacedb\%(RecursiveDir)%(Filename)%(Extension)">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\vendor\couchbase-lite-core\C\tests\data\iTunesMusicLibrary.json" LogicalName="iTunesMusicLibrary.json" />
-    <Content Include="..\..\vendor\couchbase-lite-core\C\tests\data\*.*" LogicalName="C\tests\data\%(Filename)%(Extension)" />
+    <Content Include="..\..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\C\tests\data\iTunesMusicLibrary.json" LogicalName="iTunesMusicLibrary.json" />
+    <Content Include="..\..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\C\tests\data\*.*" LogicalName="C\tests\data\%(Filename)%(Extension)" />
   </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x64\RelWithDebInfo\LiteCore.dll">
+            <Link>LiteCore.dll</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x64\RelWithDebInfo\LiteCore.pdb">
+            <Link>LiteCore.pdb</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
 
   <ItemGroup>
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -36,14 +47,6 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(Configuration)'=='Debug'">
-    <PackageReference Include="Couchbase.Lite.Enterprise.Debug" Version="3.1.0-b0154" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(Configuration)'=='Release'">
-    <PackageReference Include="Couchbase.Lite.Enterprise" Version="3.1.0-b0154" />
   </ItemGroup>
 
   <ItemGroup>
@@ -80,6 +83,9 @@
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Couchbase.Lite.Enterprise\Couchbase.Lite.Enterprise.csproj" />
+  </ItemGroup>
 
   <!-- 
     Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution 
@@ -90,6 +96,6 @@
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>
 
-  <Import Project="..\..\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems" Label="Shared" />
-  <Import Project="..\..\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems" Label="Shared" />
+  <Import Project="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems" Label="Shared" />
+  <Import Project="..\..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems" Label="Shared" />
 </Project>
