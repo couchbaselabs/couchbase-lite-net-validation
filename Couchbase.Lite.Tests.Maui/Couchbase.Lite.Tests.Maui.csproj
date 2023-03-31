@@ -123,17 +123,26 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
     <DefineConstants>TRACE;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET6_0_APPLE</DefineConstants>
+    <CodesignProvision>Automatic</CodesignProvision>
+    <EnableCodeSigning>true</EnableCodeSigning>
+    <_RequireCodeSigning>false</_RequireCodeSigning>
   </PropertyGroup>
   <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)' == 'net6.0-ios' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
+    <CodesignProvision>Automatic</CodesignProvision>
+    <EnableCodeSigning>true</EnableCodeSigning>
+    <_RequireCodeSigning>false</_RequireCodeSigning>
     <DefineConstants>TRACE;DEBUG;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET6_0_APPLE</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)' == 'Packaging|net6.0-maccatalyst' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
+    <CreatePackage>false</CreatePackage>
+    <CodesignProvision>Automatic</CodesignProvision>
+    <EnableCodeSigning>true</EnableCodeSigning>
     <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
     <DefineConstants>TRACE;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET6_0_APPLE</DefineConstants>
   </PropertyGroup>
@@ -142,6 +151,9 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
+    <CreatePackage>false</CreatePackage>
+    <CodesignProvision>Automatic</CodesignProvision>
+    <EnableCodeSigning>true</EnableCodeSigning>
     <DefineConstants>TRACE;DEBUG;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET6_0_APPLE</DefineConstants>
   </PropertyGroup>
   <!-- End Apple -->
