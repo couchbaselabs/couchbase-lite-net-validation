@@ -27,11 +27,11 @@
   </ItemGroup>
 
     <ItemGroup>
-        <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x64\RelWithDebInfo\LiteCore.dll">
+        <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\prebuilt_core\windows\x86_64\bin\LiteCore.dll">
             <Link>LiteCore.dll</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
-        <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x64\RelWithDebInfo\LiteCore.pdb">
+        <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\prebuilt_core\windows\x86_64\bin\LiteCore.pdb">
             <Link>LiteCore.pdb</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>

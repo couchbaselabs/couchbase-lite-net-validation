@@ -13,6 +13,7 @@
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+      <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -173,8 +174,14 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
   </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="..\..\..\src\Couchbase.Lite.Enterprise\obj\**" />
+        <Compile Remove="obj\**" />
+        <EmbeddedResource Remove="obj\**" />
+        <None Remove="obj\**" />
+    </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\ios-fat\LiteCore.framework">
+    <NativeReference Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\ios\lib\LiteCore.xcframework\ios-arm64_x86_64-simulator\LiteCore.framework">
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>

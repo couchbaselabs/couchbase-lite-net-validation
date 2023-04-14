@@ -26,6 +26,7 @@ namespace Couchbase.Lite.Tests.Android
         protected override void OnCreate(Bundle savedInstanceState)
         {
             ActivityContext = ApplicationContext;
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Couchbase.Lite.Support.Droid.Activate(ApplicationContext);
 
             // tests can be inside the main assembly

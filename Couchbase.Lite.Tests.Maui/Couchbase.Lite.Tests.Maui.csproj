@@ -41,7 +41,6 @@
     <MauiAsset Include="Platforms\Android\Resources\raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     <MauiAsset Include="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\C\tests\data\**" LogicalName="%(Filename)%(Extension)" />
     <MauiAsset Include="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\replacedb\**" LogicalName="replacedb\%(RecursiveDir)%(Filename)%(Extension)" />
-    <MauiAsset Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\C\tests\data\iTunesMusicLibrary.json" LogicalName="iTunesMusicLibrary.json" />
     <MauiAsset Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\C\tests\data\*.*" LogicalName="C\tests\data\%(Filename)%(Extension)" />
   </ItemGroup>
 
@@ -73,12 +72,8 @@
   </PropertyGroup>
 
   <ItemGroup Condition="'$(Configuration)|$(TargetFramework)'=='Debug|net6.0-android'">
-    <AndroidNativeLibrary Condition="'$(Platform)' == 'x86_64' or '$(Platform)' == 'armeabi-v7a' or '$(Platform)' == 'arm64-v8a' or '$(Platform)' == 'x86'" Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\android\lib\$(Platform)\libLiteCore.so">
-      <Link>Platforms\Android\$(Platform)\libLiteCore.so</Link>
-    </AndroidNativeLibrary>
-    <AndroidNativeLibrary Condition="'$(Platform)' == 'AnyCPU'" Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\android\lib\x86_64\libLiteCore.so">
-      <Link>Platforms\Android\x86_64\libLiteCore.so</Link>
-    </AndroidNativeLibrary>
+     <AndroidNativeLibrary Condition="'$(Platform)' == 'x86_64' or '$(Platform)' == 'armeabi-v7a' or '$(Platform)' == 'arm64-v8a' or '$(Platform)' == 'x86'" Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\android\$(Platform)\lib\libLiteCore.so" Abi="$(Platform)" />
+    <AndroidNativeLibrary Condition="'$(Platform)' == 'AnyCPU'" Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\android\x86_64\lib\libLiteCore.so" Abi="x86_64" />
   </ItemGroup>
   <!-- End Android-->
   
@@ -91,19 +86,19 @@
   </PropertyGroup>
 
   <ItemGroup Condition="'$(Configuration)|$(TargetFramework)'=='Debug|net6.0-windows10.0.19041.0'">
-    <Content Condition="'$(Platform)' == 'x64' or '$(Platform)' == 'AnyCPU'" Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x64\RelWithDebInfo\LiteCore.dll">
+    <Content Condition="'$(Platform)' == 'x64' or '$(Platform)' == 'AnyCPU'" Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\prebuilt_core\windows\x86_64\bin\LiteCore.dll">
       <Link>LiteCore.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Condition="'$(Platform)' == 'x64' or '$(Platform)' == 'AnyCPU'" Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\x64\RelWithDebInfo\LiteCore.pdb">
+    <Content Condition="'$(Platform)' == 'x64' or '$(Platform)' == 'AnyCPU'" Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\prebuilt_core\windows\x86_64\bin\LiteCore.pdb">
       <Link>LiteCore.pdb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Condition="'$(Platform)' == 'arm64'" Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\arm64\RelWithDebInfo\LiteCore.dll">
+    <Content Condition="'$(Platform)' == 'arm64'" Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\prebuilt_core\windows\arm64\bin\LiteCore.dll">
       <Link>LiteCore.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Condition="'$(Platform)' == 'arm64'" Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\arm64\RelWithDebInfo\LiteCore.pdb">
+    <Content Condition="'$(Platform)' == 'arm64'" Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\prebuilt_core\windows\arm64\bin\LiteCore.pdb">
       <Link>LiteCore.pdb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -112,7 +107,7 @@
 
   <!-- Apple -->
   <ItemGroup Condition="'$(Configuration)'=='Debug' and ('$(TargetFramework)' == 'net6.0-ios' or '$(TargetFramework)' == 'net6.0-maccatalyst')">
-    <NativeReference Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\ios\LiteCore.xcframework">
+    <NativeReference Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\ios\LiteCore.xcframework">
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>

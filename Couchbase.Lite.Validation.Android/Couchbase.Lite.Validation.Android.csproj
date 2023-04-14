@@ -17,7 +17,7 @@
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
@@ -82,12 +82,8 @@
     <None Remove="obj\**" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidNativeLibrary Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\android\lib\armeabi-v7a\libLiteCore.so">
-      <Link>armeabi-v7a\libLiteCore.so</Link>
-    </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\android\lib\x86\libLiteCore.so">
-      <Link>x86\libLiteCore.so</Link>
-    </AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\android\armeabi-v7a\lib\libLiteCore.so" Abi="armeabi-v7a" />
+    <AndroidNativeLibrary Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\android\x86\lib\libLiteCore.so" Abi="x86" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
@@ -139,6 +135,9 @@
       <Version>4.6.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2" />
+    <PackageReference Include="Xamarin.Essentials">
+      <Version>1.7.5</Version>
+    </PackageReference>
     <PackageReference Include="xunit">
       <Version>2.4.1</Version>
     </PackageReference>
@@ -151,6 +150,10 @@
     <PackageReference Include="DerConverter">
       <Version>3.0.0.82</Version>
     </PackageReference>
+      <PackageReference Include="Xamarin.Google.Android.Material" Version="1.1.0.5-rc3" />
+      <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.5" />
+      <PackageReference Include="Xamarin.AndroidX.MediaRouter" Version="1.2.0" />
+      <PackageReference Include="Xamarin.AndroidX.Palette" Version="1.0.0.5" />
   </ItemGroup>
   <Import Project="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems" Label="Shared" />
   <Import Project="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems" Label="Shared" />
