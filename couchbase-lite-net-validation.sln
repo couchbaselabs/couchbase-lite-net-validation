@@ -436,6 +436,10 @@ Global
 		..\..\couchbase-lite-net\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems*{101e3060-8799-4119-8a7a-4f86a01c0c84}*SharedItemsImports = 4
 		..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems*{101e3060-8799-4119-8a7a-4f86a01c0c84}*SharedItemsImports = 4
 		..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems*{11f38891-8397-49b4-9146-6daf0a9d7866}*SharedItemsImports = 13
+		..\..\couchbase-lite-net\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems*{3bc0ac7e-3b3b-4d3f-9cc0-b2bdecc460a6}*SharedItemsImports = 4
+		..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems*{3bc0ac7e-3b3b-4d3f-9cc0-b2bdecc460a6}*SharedItemsImports = 4
+		..\..\couchbase-lite-net\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems*{3bc0ac7e-3b3b-4d3f-9cc0-b2bdecc460a6}*SharedItemsImports = 4
+		..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems*{3bc0ac7e-3b3b-4d3f-9cc0-b2bdecc460a6}*SharedItemsImports = 4
 		..\..\couchbase-lite-net\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems*{4f190f30-ad02-4b74-9c44-08ba5410a3cb}*SharedItemsImports = 5
 		..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems*{4f190f30-ad02-4b74-9c44-08ba5410a3cb}*SharedItemsImports = 5
 		..\..\couchbase-lite-net\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems*{4f190f30-ad02-4b74-9c44-08ba5410a3cb}*SharedItemsImports = 5

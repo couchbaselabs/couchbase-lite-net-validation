@@ -13,6 +13,7 @@
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -174,7 +175,15 @@
     <Compile Include="AppDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\/build_cmake/ios/LiteCore.xcframework/ios-arm64_x86_64-simulator/LiteCore.framework">
+    <NativeReference
+      Condition="Exists('..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\ios\LiteCore.xcframework\ios-arm64_x86_64-simulator\LiteCore.framework')"
+      Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\ios\LiteCore.xcframework\ios-arm64_x86_64-simu:lator\LiteCore.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference
+      Condition="!Exists('..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\ios\LiteCore.xcframework\ios-arm64_x86_64-simulator\LiteCore.framework')"
+      Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\ios-fat\LiteCore.framework">
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>

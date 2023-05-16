@@ -17,10 +17,11 @@
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -151,6 +152,12 @@
     <PackageReference Include="DerConverter">
       <Version>3.0.0.82</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.4" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.4" />
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.1.0.5-rc3" />
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.5" />
+    <PackageReference Include="Xamarin.AndroidX.MediaRouter" Version="1.2.0" />
+    <PackageReference Include="Xamarin.AndroidX.Palette" Version="1.0.0.5" />
   </ItemGroup>
   <Import Project="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems" Label="Shared" />
   <Import Project="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems" Label="Shared" />
