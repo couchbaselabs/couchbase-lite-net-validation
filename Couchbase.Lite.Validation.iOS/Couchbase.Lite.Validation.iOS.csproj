@@ -177,7 +177,7 @@
   <ItemGroup>
     <NativeReference
       Condition="Exists('..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\ios\LiteCore.xcframework\ios-arm64_x86_64-simulator\LiteCore.framework')"
-      Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\ios\LiteCore.xcframework\ios-arm64_x86_64-simu:lator\LiteCore.framework">
+      Include="..\..\..\couchbase-lite-net\vendor\couchbase-lite-core\build_cmake\ios\LiteCore.xcframework\ios-arm64_x86_64-simulator\LiteCore.framework">
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>
