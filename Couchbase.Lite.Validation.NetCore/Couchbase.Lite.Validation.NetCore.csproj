@@ -78,8 +78,6 @@
 
   <Import Project="..\..\..\couchbase-lite-net\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems" Label="Shared" />
 
-  <Import Project="..\..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems" Label="Shared" />
-
   <ItemGroup Condition=" ('$(OS)' == 'Windows_NT' OR $(Configuration.Contains('Packaging'))) AND '$(JUST_CSHARP)' == '' ">
     <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\prebuilt_core\windows\x86_64\bin\LiteCore.dll">
       <Link>x64\LiteCore.dll</Link>

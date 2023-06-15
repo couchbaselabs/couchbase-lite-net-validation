@@ -73,7 +73,7 @@
 
   <ItemGroup Condition="'$(Configuration)|$(TargetFramework)'=='Debug|net6.0-android'">
      <AndroidNativeLibrary Condition="'$(Platform)' == 'x86_64' or '$(Platform)' == 'armeabi-v7a' or '$(Platform)' == 'arm64-v8a' or '$(Platform)' == 'x86'" Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\android\$(Platform)\lib\libLiteCore.so" Abi="$(Platform)" />
-    <AndroidNativeLibrary Condition="'$(Platform)' == 'AnyCPU'" Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\android\x86_64\lib\libLiteCore.so" Abi="x86_64" />
+    <AndroidNativeLibrary Condition="'$(Platform)' == 'AnyCPU' or '$(Platform)' == 'x64'" Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\android\x86_64\lib\libLiteCore.so" Abi="x86_64" />
   </ItemGroup>
   <!-- End Android-->
   
@@ -159,4 +159,4 @@
   </PropertyGroup>
 
   <Import Project="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems" Label="Shared" />
-  <Import Project="..\..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems" Label="Shared" /> </Project>
+</Project>

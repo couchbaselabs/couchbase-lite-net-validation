@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Couchbase.Lite.Tests.Maui",
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Couchbase.Lite.Tests.Shared", "..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.shproj", "{11F38891-8397-49B4-9146-6DAF0A9D7866}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LiteCore.Tests.Shared", "..\..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.shproj", "{6EC40F09-4C86-4F51-9F0E-C4397601A567}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Couchbase.Lite.Enterprise", "..\..\..\src\Couchbase.Lite.Enterprise\Couchbase.Lite.Enterprise.csproj", "{71EF1851-A7EF-44A1-8A5D-128AE6B43077}"
 EndProject
 Global
@@ -131,10 +129,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems*{11f38891-8397-49b4-9146-6daf0a9d7866}*SharedItemsImports = 13
-		..\..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems*{6ec40f09-4c86-4f51-9f0e-c4397601a567}*SharedItemsImports = 13
 		..\..\..\couchbase-lite-net\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems*{71ef1851-a7ef-44a1-8a5d-128ae6b43077}*SharedItemsImports = 5
 		..\..\..\couchbase-lite-net\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems*{71ef1851-a7ef-44a1-8a5d-128ae6b43077}*SharedItemsImports = 5
 		..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems*{bf529573-0406-4888-a0b9-a03c9ee3d895}*SharedItemsImports = 5
-		..\..\..\couchbase-lite-net\src\LiteCore\test\LiteCore.Tests.Shared\LiteCore.Tests.Shared.projitems*{bf529573-0406-4888-a0b9-a03c9ee3d895}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal
