@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+    <TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
     <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
     <Platforms>AnyCPU;iPhoneSimulator;iPhone;x64;arm64;x86_64;armeabi-v7a;arm64-v8a;x86</Platforms>
     <OutputType>Exe</OutputType>
@@ -64,14 +64,14 @@
   </ItemGroup>
 
   <!-- Android -->
-  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)'=='net6.0-android'">
-    <DefineConstants>DEBUG;TRACE;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET6_0_ANDROID</DefineConstants>
+  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)'=='net7.0-android'">
+    <DefineConstants>DEBUG;TRACE;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET_ANDROID</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)'=='Packaging|net6.0-android'">
-    <DefineConstants>TRACE;LITECORE_PACKAGED;NET6_0_ANDROID;COUCHBASE_ENTERPRISE</DefineConstants>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)'=='Packaging|net7.0-android'">
+    <DefineConstants>TRACE;LITECORE_PACKAGED;NET_ANDROID;COUCHBASE_ENTERPRISE</DefineConstants>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(Configuration)|$(TargetFramework)'=='Debug|net6.0-android'">
+  <ItemGroup Condition="'$(Configuration)|$(TargetFramework)'=='Debug|net7.0-android'">
      <AndroidNativeLibrary Condition="'$(Platform)' == 'x86_64' or '$(Platform)' == 'armeabi-v7a' or '$(Platform)' == 'arm64-v8a' or '$(Platform)' == 'x86'" Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\android\$(Platform)\lib\libLiteCore.so" Abi="$(Platform)" />
     <AndroidNativeLibrary Condition="'$(Platform)' == 'AnyCPU' or '$(Platform)' == 'x64'" Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\android\x86_64\lib\libLiteCore.so" Abi="x86_64" />
   </ItemGroup>
@@ -106,23 +106,23 @@
   <!-- End Windows-->
 
   <!-- Apple -->
-  <ItemGroup Condition="'$(Configuration)'=='Debug' and ('$(TargetFramework)' == 'net6.0-ios' or '$(TargetFramework)' == 'net6.0-maccatalyst')">
+  <ItemGroup Condition="'$(Configuration)'=='Debug' and ('$(TargetFramework)' == 'net7.0-ios' or '$(TargetFramework)' == 'net7.0-maccatalyst')">
     <NativeReference Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\ios\LiteCore.xcframework">
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>
   </ItemGroup>
   
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)' == 'Packaging|net6.0-ios' ">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)' == 'Packaging|net7.0-ios' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
-    <DefineConstants>TRACE;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET6_0_APPLE</DefineConstants>
+    <DefineConstants>TRACE;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET_APPLE</DefineConstants>
     <CodesignProvision>Automatic</CodesignProvision>
     <EnableCodeSigning>true</EnableCodeSigning>
     <_RequireCodeSigning>false</_RequireCodeSigning>
   </PropertyGroup>
-  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)' == 'net6.0-ios' ">
+  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)' == 'net7.0-ios' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -130,18 +130,18 @@
     <CodesignProvision>Automatic</CodesignProvision>
     <EnableCodeSigning>true</EnableCodeSigning>
     <_RequireCodeSigning>false</_RequireCodeSigning>
-    <DefineConstants>TRACE;DEBUG;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET6_0_APPLE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET_APPLE</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)' == 'Packaging|net6.0-maccatalyst' ">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)' == 'Packaging|net7.0-maccatalyst' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <CreatePackage>false</CreatePackage>
     <CodesignProvision>Automatic</CodesignProvision>
     <EnableCodeSigning>true</EnableCodeSigning>
     <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
-    <DefineConstants>TRACE;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET6_0_APPLE</DefineConstants>
+    <DefineConstants>TRACE;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET_APPLE</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)' == 'net6.0-maccatalyst' ">
+  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)' == 'net7.0-maccatalyst' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -149,7 +149,7 @@
     <CreatePackage>false</CreatePackage>
     <CodesignProvision>Automatic</CodesignProvision>
     <EnableCodeSigning>true</EnableCodeSigning>
-    <DefineConstants>TRACE;DEBUG;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET6_0_APPLE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET_APPLE</DefineConstants>
   </PropertyGroup>
   <!-- End Apple -->
   
