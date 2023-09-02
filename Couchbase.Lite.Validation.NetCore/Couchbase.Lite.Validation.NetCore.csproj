@@ -19,13 +19,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DefineConstants>TRACE;CBL_NO_VERSION_CHECK;COUCHBASE_ENTERPRISE;CBL_NO_EXPENSIVE;NEEDS_LITECORE_LOAD;</DefineConstants>
-    <LangVersion>9.0</LangVersion>
+    <LangVersion>Latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DefineConstants>TRACE;CBL_NO_VERSION_CHECK;COUCHBASE_ENTERPRISE;CBL_NO_EXPENSIVE;NEEDS_LITECORE_LOAD;</DefineConstants>
-    <LangVersion>9.0</LangVersion>
+    <LangVersion>Latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -60,6 +60,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
     <PackageReference Include="Microsoft.Win32.Registry" Version="4.5.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="SerialQueue" Version="2.1.0" />
     <PackageReference Include="SimpleInjector" Version="5.2.1" />
     <PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
     <PackageReference Include="System.IO.Compression" Version="4.3.0" />
