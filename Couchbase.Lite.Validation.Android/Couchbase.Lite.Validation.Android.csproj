@@ -39,6 +39,7 @@
     <EnableLLVM>false</EnableLLVM>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidSupportedAbis>armeabi-v7a;x86</AndroidSupportedAbis>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>PdbOnly</DebugType>
@@ -132,6 +133,9 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.2</Version>
     </PackageReference>
+    <PackageReference Include="SerialQueue">
+      <Version>2.1.0</Version>
+    </PackageReference>
     <PackageReference Include="SimpleInjector">
       <Version>4.6.2</Version>
     </PackageReference>
@@ -151,10 +155,10 @@
     <PackageReference Include="DerConverter">
       <Version>3.0.0.82</Version>
     </PackageReference>
-      <PackageReference Include="Xamarin.Google.Android.Material" Version="1.1.0.5-rc3" />
-      <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.5" />
-      <PackageReference Include="Xamarin.AndroidX.MediaRouter" Version="1.2.0" />
-      <PackageReference Include="Xamarin.AndroidX.Palette" Version="1.0.0.5" />
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.1.0.5-rc3" />
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.5" />
+    <PackageReference Include="Xamarin.AndroidX.MediaRouter" Version="1.2.0" />
+    <PackageReference Include="Xamarin.AndroidX.Palette" Version="1.0.0.5" />
   </ItemGroup>
   <Import Project="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems" Label="Shared" />
   <Import Project="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems" Label="Shared" />

@@ -9,6 +9,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Couchbase.Lite.Tests.Shared
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Couchbase.Lite.Enterprise", "..\..\..\src\Couchbase.Lite.Enterprise\Couchbase.Lite.Enterprise.csproj", "{71EF1851-A7EF-44A1-8A5D-128AE6B43077}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Couchbase.Lite.Support.NetDesktop", "..\..\..\couchbase-lite-net\src\Couchbase.Lite.Support.NetDesktop\Couchbase.Lite.Support.NetDesktop.csproj", "{D162DDC9-DAA6-4788-B389-9FD16D1783EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug_Coverage|Any CPU = Debug_Coverage|Any CPU
@@ -120,6 +122,42 @@ Global
 		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Release|arm64.Build.0 = Release|Any CPU
 		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Release|x64.ActiveCfg = Release|Any CPU
 		{71EF1851-A7EF-44A1-8A5D-128AE6B43077}.Release|x64.Build.0 = Release|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Debug_Coverage|Any CPU.ActiveCfg = Debug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Debug_Coverage|Any CPU.Build.0 = Debug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Debug_Coverage|arm64.ActiveCfg = Debug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Debug_Coverage|arm64.Build.0 = Debug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Debug_Coverage|x64.ActiveCfg = Debug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Debug_Coverage|x64.Build.0 = Debug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Debug|arm64.Build.0 = Debug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Debug|x64.Build.0 = Debug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Packaging|Any CPU.ActiveCfg = Packaging|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Packaging|Any CPU.Build.0 = Packaging|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Packaging|arm64.ActiveCfg = Packaging|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Packaging|arm64.Build.0 = Packaging|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Packaging|x64.ActiveCfg = Packaging|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Packaging|x64.Build.0 = Packaging|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.PackagingDebug|Any CPU.ActiveCfg = PackagingDebug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.PackagingDebug|Any CPU.Build.0 = PackagingDebug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.PackagingDebug|arm64.ActiveCfg = PackagingDebug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.PackagingDebug|arm64.Build.0 = PackagingDebug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.PackagingDebug|x64.ActiveCfg = PackagingDebug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.PackagingDebug|x64.Build.0 = PackagingDebug|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Release_Coverage|Any CPU.ActiveCfg = Release|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Release_Coverage|Any CPU.Build.0 = Release|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Release_Coverage|arm64.ActiveCfg = Release|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Release_Coverage|arm64.Build.0 = Release|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Release_Coverage|x64.ActiveCfg = Release|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Release_Coverage|x64.Build.0 = Release|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Release|arm64.ActiveCfg = Release|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Release|arm64.Build.0 = Release|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Release|x64.ActiveCfg = Release|Any CPU
+		{D162DDC9-DAA6-4788-B389-9FD16D1783EE}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
