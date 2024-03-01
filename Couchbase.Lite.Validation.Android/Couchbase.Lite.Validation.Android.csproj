@@ -122,6 +122,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Couchbase.Lite.Extensions">
+      <Version>1.0.0</Version>
+    </PackageReference>
     <PackageReference Include="FluentAssertions">
       <Version>5.10.0</Version>
     </PackageReference>
