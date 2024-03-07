@@ -51,6 +51,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Couchbase.Lite.Extensions" Version="1.0.0" />
     <PackageReference Include="DerConverter" Version="3.0.0.82" />
     <PackageReference Include="FluentAssertions" Version="5.9.0" />
     <PackageReference Include="GitInfo" Version="2.0.20">
