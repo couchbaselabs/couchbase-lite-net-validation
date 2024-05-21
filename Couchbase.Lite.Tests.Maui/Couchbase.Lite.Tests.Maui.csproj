@@ -56,6 +56,7 @@
   <ItemGroup>
     <PackageReference Include="Couchbase.Lite.Extensions" Version="1.0.0" />
     <PackageReference Include="Shiny.Xunit.Runners.Maui" Version="1.0.0" />
+    <PackageReference Include="Xunit.SkippableFact" Version="1.4.13" />
     <PackageReference Include="FluentAssertions" Version="6.7.0" />
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="6.0.0" />
     <PackageReference Include="SimpleInjector" Version="5.4.1" />

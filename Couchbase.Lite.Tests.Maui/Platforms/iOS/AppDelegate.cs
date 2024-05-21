@@ -25,20 +25,6 @@ namespace Couchbase.Lite.Tests.Maui
             _thisWindow = app.Windows[0];
             var p = ((NavigationPage)_thisWindow.Content).CurrentPage;
             await ((HomeViewModel)((NavigationPage)_thisWindow.Content).CurrentPage.BindingContext).StartAssemblyScanAsync();
-            p.Loaded += (sender, e) => 
-            {
-                StartTests();
-            };
-        }
-
-        private void StartTests()
-        {
-            var command = ((HomeViewModel)((NavigationPage)_thisWindow.Content).CurrentPage.BindingContext).RunEverythingCommand;
-            var isBusy = ((HomeViewModel)((NavigationPage)_thisWindow.Content).CurrentPage.BindingContext).IsBusy;
-            if (!_testStarted) {
-                _testStarted = true;
-                command.Execute(() => !isBusy);
-            }
         }
 
 #else
