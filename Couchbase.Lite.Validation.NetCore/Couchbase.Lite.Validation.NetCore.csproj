@@ -5,6 +5,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <TargetFrameworks>net462;net8.0</TargetFrameworks>
+
     <IsPackable>false</IsPackable>
 
     <AssemblyName>Couchbase.Lite.Validation.NetCore</AssemblyName>
@@ -15,13 +16,17 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DefineConstants>TRACE;CBL_NO_VERSION_CHECK;COUCHBASE_ENTERPRISE;CBL_NO_EXPENSIVE;NEEDS_LITECORE_LOAD;</DefineConstants>
+    <DefineConstants>TRACE;CBL_NO_VERSION_CHECK;COUCHBASE_ENTERPRISE;NEEDS_LITECORE_LOAD;</DefineConstants>
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>
 
+    <PropertyGroup Condition="'$(TargetFramework)' == 'net462'">
+        <DefineConstants>$(DefineConstants);SANITY_ONLY</DefineConstants>
+    </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DefineConstants>TRACE;CBL_NO_VERSION_CHECK;COUCHBASE_ENTERPRISE;CBL_NO_EXPENSIVE;NEEDS_LITECORE_LOAD;</DefineConstants>
+    <DefineConstants>TRACE;CBL_NO_VERSION_CHECK;COUCHBASE_ENTERPRISE;NEEDS_LITECORE_LOAD;</DefineConstants>
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>
 
