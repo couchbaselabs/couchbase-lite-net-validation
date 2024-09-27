@@ -4,7 +4,7 @@
     <IsMac Condition=" '$(OS)' == 'Unix' AND Exists('/Library/Frameworks') ">true</IsMac>
   </PropertyGroup>
   <PropertyGroup>
-    <TargetFrameworks>net462;net6.0</TargetFrameworks>
+    <TargetFrameworks>net462;net8.0</TargetFrameworks>
 
     <IsPackable>false</IsPackable>
 
@@ -14,18 +14,19 @@
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
       <Nullable>enable</Nullable>
   </PropertyGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp2.0'">
-    <PackageReference Include="Microsoft.NetCore.App" Version="2.0" />
-  </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DefineConstants>TRACE;CBL_NO_VERSION_CHECK;COUCHBASE_ENTERPRISE;CBL_NO_EXPENSIVE;NEEDS_LITECORE_LOAD;</DefineConstants>
+    <DefineConstants>TRACE;CBL_NO_VERSION_CHECK;COUCHBASE_ENTERPRISE;NEEDS_LITECORE_LOAD;</DefineConstants>
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>
 
+    <PropertyGroup Condition="'$(TargetFramework)' == 'net462'">
+        <DefineConstants>$(DefineConstants);SANITY_ONLY</DefineConstants>
+    </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DefineConstants>TRACE;CBL_NO_VERSION_CHECK;COUCHBASE_ENTERPRISE;CBL_NO_EXPENSIVE;NEEDS_LITECORE_LOAD;</DefineConstants>
+    <DefineConstants>TRACE;CBL_NO_VERSION_CHECK;COUCHBASE_ENTERPRISE;NEEDS_LITECORE_LOAD;</DefineConstants>
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>
 
