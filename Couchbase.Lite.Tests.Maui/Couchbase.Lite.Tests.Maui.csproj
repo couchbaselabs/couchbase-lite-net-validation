@@ -1,12 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
-    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+    <TargetFrameworks>$(MauiDotNetVersion)-android;$(MauiDotNetVersion)-ios;$(MauiDotNetVersion)-maccatalyst</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);$(MauiDotNetVersion)-windows$(WinUIMinimumVersion)</TargetFrameworks>
     <Platforms>AnyCPU;iPhoneSimulator;iPhone;x64;arm64;x86_64;armeabi-v7a;arm64-v8a;x86</Platforms>
     <OutputType>Exe</OutputType>
     <RootNamespace>Couchbase.Lite.Tests.Maui</RootNamespace>
     <UseMaui>true</UseMaui>
     <SingleProject>true</SingleProject>
+    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Configurations>Debug;PackagingDebug;Packaging</Configurations>
@@ -22,11 +23,11 @@
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
     <ApplicationVersion>1</ApplicationVersion>
 
-    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
-    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
-    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">22.0</SupportedOSPlatformVersion>
-    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</SupportedOSPlatformVersion>
-    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</TargetPlatformMinVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">$(iOSMinimumVersion)</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">$(MacCatalystMinimumVersion)</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">$(MinimumAndroidAPI)</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">$(WinUIMinimumVersion)</SupportedOSPlatformVersion>
+    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">$(WinUIMinimumVersion)</TargetPlatformMinVersion>
 
   </PropertyGroup>
 
@@ -66,14 +67,14 @@
   </ItemGroup>
 
   <!-- Android -->
-  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)'=='net8.0-android'">
+  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)'=='$(ConsoleDotNetVersion)-android'">
     <DefineConstants>DEBUG;TRACE;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET_ANDROID</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)'=='Packaging|net8.0-android'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)'=='Packaging|$(ConsoleDotNetVersion)-android'">
     <DefineConstants>TRACE;LITECORE_PACKAGED;NET_ANDROID;COUCHBASE_ENTERPRISE</DefineConstants>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(Configuration)|$(TargetFramework)'=='Debug|net8.0-android'">
+  <ItemGroup Condition="'$(Configuration)|$(TargetFramework)'=='Debug|$(ConsoleDotNetVersion)-android'">
      <AndroidNativeLibrary Condition="'$(Platform)' == 'x86_64' or '$(Platform)' == 'armeabi-v7a' or '$(Platform)' == 'arm64-v8a' or '$(Platform)' == 'x86'" Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\android\$(Platform)\lib\libLiteCore.so" Abi="$(Platform)" />
     <AndroidNativeLibrary Condition="'$(Platform)' == 'AnyCPU' or '$(Platform)' == 'x64'" Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\android\x86_64\lib\libLiteCore.so" Abi="x86_64" />
     <AndroidNativeLibrary Condition="'$(Platform)' == 'AnyCPU'" Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\android\arm64-v8a\lib\libLiteCore.so" Abi="arm64-v8a" />
@@ -81,14 +82,14 @@
   <!-- End Android-->
   
   <!-- Windows -->
-  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)'=='net8.0-windows10.0.19041.0'">
+  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)'=='$(ConsoleDotNetVersion)-windows10.0.19041.0'">
     <DefineConstants>DEBUG;TRACE;NETFX_CORE;NET6_0_WINDOWS10;COUCHBASE_ENTERPRISE</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)'=='Packaging|net8.0-windows10.0.19041.0'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)'=='Packaging|$(ConsoleDotNetVersion)-windows10.0.19041.0'">
     <DefineConstants>TRACE;NETFX_CORE;NET6_0_WINDOWS10;COUCHBASE_ENTERPRISE</DefineConstants>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(Configuration)|$(TargetFramework)'=='Debug|net8.0-windows10.0.19041.0'">
+  <ItemGroup Condition="'$(Configuration)|$(TargetFramework)'=='Debug|$(ConsoleDotNetVersion)-windows10.0.19041.0'">
     <Content Condition="'$(Platform)' == 'x64' or '$(Platform)' == 'AnyCPU'" Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\prebuilt_core\windows\x86_64\bin\LiteCore.dll">
       <Link>LiteCore.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -109,14 +110,14 @@
   <!-- End Windows-->
 
   <!-- Apple -->
-  <ItemGroup Condition="'$(Configuration)'=='Debug' and ('$(TargetFramework)' == 'net8.0-ios' or '$(TargetFramework)' == 'net8.0-maccatalyst')">
+  <ItemGroup Condition="'$(Configuration)'=='Debug' and ('$(TargetFramework)' == '$(ConsoleDotNetVersion)-ios' or '$(TargetFramework)' == '$(ConsoleDotNetVersion)-maccatalyst')">
     <NativeReference Include="..\..\..\couchbase-lite-net\vendor\prebuilt_core\ios\LiteCore.xcframework">
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>
   </ItemGroup>
   
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)' == 'Packaging|net8.0-ios' ">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)' == 'Packaging|$(ConsoleDotNetVersion)-ios' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
@@ -125,7 +126,7 @@
     <EnableCodeSigning>true</EnableCodeSigning>
     <_RequireCodeSigning>false</_RequireCodeSigning>
   </PropertyGroup>
-  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)' == 'net8.0-ios' ">
+  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)' == '$(ConsoleDotNetVersion)-ios' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -135,7 +136,7 @@
     <_RequireCodeSigning>false</_RequireCodeSigning>
     <DefineConstants>TRACE;DEBUG;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET_APPLE</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)' == 'Packaging|net8.0-maccatalyst' ">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)' == 'Packaging|$(ConsoleDotNetVersion)-maccatalyst' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <CreatePackage>false</CreatePackage>
@@ -144,7 +145,7 @@
     <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
     <DefineConstants>TRACE;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET_APPLE</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)' == 'net8.0-maccatalyst' ">
+  <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(TargetFramework)' == '$(ConsoleDotNetVersion)-maccatalyst' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>

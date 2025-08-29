@@ -1,10 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\..\couchbase-lite-net\src\TargetFrameworks.props" />
   <PropertyGroup>
     <IsMac>false</IsMac>
     <IsMac Condition=" '$(OS)' == 'Unix' AND Exists('/Library/Frameworks') ">true</IsMac>
   </PropertyGroup>
   <PropertyGroup>
-    <TargetFrameworks>net462;net8.0</TargetFrameworks>
+    <TargetFrameworks>$(DotNetFrameworkVersion);$(ConsoleDotNetVersion)</TargetFrameworks>
 
     <IsPackable>false</IsPackable>
 
@@ -12,7 +13,7 @@
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
-      <Nullable>enable</Nullable>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -20,7 +21,7 @@
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>
 
-    <PropertyGroup Condition="'$(TargetFramework)' == 'net462'">
+    <PropertyGroup Condition="'$(TargetFramework)' == '$(DotNetFrameworkVersion)'">
         <DefineConstants>$(DefineConstants);SANITY_ONLY</DefineConstants>
     </PropertyGroup>
 
@@ -59,13 +60,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Condition="'$(TargetFramework)' == 'net462'" Include="IndexRange" Version="1.1.0" />
-    <PackageReference Condition="'$(TargetFramework)' == 'net462'" Include="Microsoft.Bcl.HashCode" Version="6.0.0" />
-    <PackageReference Condition="'$(TargetFramework)' == 'net462'" Include="Nullable" Version="1.3.1">
+    <PackageReference Condition="'$(TargetFramework)' == '$(DotNetFrameworkVersion)'" Include="IndexRange" Version="1.1.0" />
+    <PackageReference Condition="'$(TargetFramework)' == '$(DotNetFrameworkVersion)'" Include="Microsoft.Bcl.HashCode" Version="6.0.0" />
+    <PackageReference Condition="'$(TargetFramework)' == '$(DotNetFrameworkVersion)'" Include="Nullable" Version="1.3.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Condition="'$(TargetFramework)' == 'net462'"  Include="PolySharp" Version="1.14.1">
+    <PackageReference Condition="'$(TargetFramework)' == '$(DotNetFrameworkVersion)'"  Include="PolySharp" Version="1.14.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
