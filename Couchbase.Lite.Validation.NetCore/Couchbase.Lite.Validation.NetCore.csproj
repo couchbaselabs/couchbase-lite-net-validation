@@ -123,16 +123,16 @@
       <Link>libstdc++.so.6</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\prebuilt_core\linux\x86_64\lib\libicudata.so.71">
-      <Link>libicudata.so.71</Link>
+    <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\prebuilt_core\linux\x86_64\lib\libicudata.so.76">
+      <Link>libicudata.so.76</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\prebuilt_core\linux\x86_64\lib\libicui18n.so.71">
-      <Link>libicui18n.so.71</Link>
+    <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\prebuilt_core\linux\x86_64\lib\libicui18n.so.76">
+      <Link>libicui18n.so.76</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\prebuilt_core\linux\x86_64\lib\libicuuc.so.71">
-      <Link>libicuuc.so.71</Link>
+    <None Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\prebuilt_core\linux\x86_64\lib\libicuuc.so.76">
+      <Link>libicuuc.so.76</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

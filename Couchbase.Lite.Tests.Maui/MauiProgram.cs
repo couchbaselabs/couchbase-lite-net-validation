@@ -7,6 +7,8 @@ using Microsoft.Maui.LifecycleEvents;
 using Xunit.Runners.Maui;
 using Microsoft.Extensions.Logging;
 
+[assembly: Xunit.TestFramework("Test.CouchbaseTestFramework", "Couchbase.Lite.Tests.Maui")]
+
 namespace Couchbase.Lite.Tests.Maui
 {
     public static class MauiProgram
