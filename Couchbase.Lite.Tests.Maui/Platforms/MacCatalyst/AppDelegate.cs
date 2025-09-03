@@ -14,18 +14,21 @@ namespace Couchbase.Lite.Tests.Maui
     public class AppDelegate : MauiUIApplicationDelegate
     {
 #if !RUN_HEADLESS
-
-        bool _testStarted = false;
-        IWindow _thisWindow;
+        private IWindow? _thisWindow;
 
         public override async void OnActivated(UIApplication application)
         {
-            base.OnActivated(application);
+            try {
+                base.OnActivated(application);
 
-            var app = TestServices.Services.GetService<IApplication>();
-            _thisWindow = app.Windows[0];
-            var p = ((NavigationPage)_thisWindow.Content).CurrentPage;
-            await ((HomeViewModel)((NavigationPage)_thisWindow.Content).CurrentPage.BindingContext).StartAssemblyScanAsync();
+                var app = TestServices.Services.GetRequiredService<IApplication>();
+                _thisWindow = app.Windows[0];
+                var p = ((NavigationPage)_thisWindow.Content!).CurrentPage;
+                await ((HomeViewModel)((NavigationPage)_thisWindow.Content).CurrentPage.BindingContext).StartAssemblyScanAsync();
+            }
+            catch (Exception e) {
+                Console.WriteLine($"OnActivated Exception: {e}");
+            }
         }
 
 #else

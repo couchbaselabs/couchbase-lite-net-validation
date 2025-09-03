@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Microsoft.UI.Xaml;
 using Xunit.Runners.Maui.VisualRunner;
 using Xunit.Runners.Maui;
@@ -9,8 +10,7 @@ namespace Couchbase.Lite.Tests.Maui.WinUI
     /// </summary>
     public partial class App : MiddleApp
     {
-        IWindow _thisWindow;
-        bool _testStarted = false;
+        private IWindow? _thisWindow;
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -18,20 +18,22 @@ namespace Couchbase.Lite.Tests.Maui.WinUI
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
-            #if DEBUG
-            Support.WinUI.CheckVersion();
-            #endif
+            InitializeComponent();
         }
 
-        protected async override void OnLaunched(LaunchActivatedEventArgs args)
+        protected override async void OnLaunched(LaunchActivatedEventArgs args)
         {
-            base.OnLaunched(args);
+            try {
+                base.OnLaunched(args);
 
-            var app = TestServices.Services.GetService<IApplication>();
-            _thisWindow = app.Windows[0];
-            var p = ((NavigationPage)_thisWindow.Content).CurrentPage;
-            await ((HomeViewModel)((NavigationPage)_thisWindow.Content).CurrentPage.BindingContext).StartAssemblyScanAsync();
+                var app = TestServices.Services.GetService<IApplication>()!;
+                _thisWindow = app.Windows[0];
+                var p = ((NavigationPage)_thisWindow.Content!).CurrentPage;
+                await ((HomeViewModel)((NavigationPage)_thisWindow.Content).CurrentPage.BindingContext).StartAssemblyScanAsync();
+            }
+            catch (Exception e) {
+                Debug.WriteLine($"OnLaunched Exception: {e}");
+            }
         }
     }
 

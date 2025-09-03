@@ -11,27 +11,31 @@ namespace Couchbase.Lite.Tests.Maui
 	public class MainActivity : MauiAppCompatActivity
 	{
         #if !RUN_HEADLESS
-        public static Context ActivityContext { get; private set; }
+        public static Context? ActivityContext { get; private set; }
 
-        IWindow _thisWindow;
-        bool _testStarted = false;
+        private IWindow? _thisWindow;
 
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle? bundle)
         {
             ActivityContext = ApplicationContext;
-            Support.Droid.Activate(ApplicationContext);
+            Support.Droid.Activate(ApplicationContext!);
 
             // you cannot add more assemblies once calling base
             base.OnCreate(bundle);
         }
 
-        protected async override void OnPostCreate(Bundle bundle)
+        protected override async void OnPostCreate(Bundle? bundle)
         {
-            base.OnPostCreate(bundle);
-            var app = TestServices.Services.GetService<IApplication>();
-            _thisWindow = app.Windows[0];
-            var p = ((NavigationPage)_thisWindow.Content).CurrentPage;
-            await ((HomeViewModel)((NavigationPage)_thisWindow.Content).CurrentPage.BindingContext).StartAssemblyScanAsync();
+            try {
+                base.OnPostCreate(bundle);
+                var app = TestServices.Services.GetRequiredService<IApplication>();
+                _thisWindow = app.Windows[0];
+                var p = ((NavigationPage)_thisWindow.Content!).CurrentPage;
+                await ((HomeViewModel)((NavigationPage)_thisWindow.Content).CurrentPage.BindingContext).StartAssemblyScanAsync();
+            }
+            catch (Exception e) {
+                Android.Util.Log.Error("App", $"OnPostCreate Exception: {e}");
+            }
         }
 
         #endif

@@ -7,8 +7,14 @@ namespace Couchbase.Lite.Tests.Maui
 		public App()
 		{
 			InitializeComponent();
-
-			MainPage = new ContentPage();
 		}
-    }
+
+		protected override Window CreateWindow(IActivationState? activationState)
+		{
+			return new()
+			{
+				Page = new ContentPage()
+			};
+		}
+	}
 }

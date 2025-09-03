@@ -71,7 +71,7 @@ namespace Couchbase.Lite.Tests.Maui
 
         protected abstract MauiApp CreateMauiApp();
 
-        public override bool WillFinishLaunching(UIApplication application, NSDictionary launchOptions)
+        public override bool WillFinishLaunching(UIApplication application, NSDictionary? launchOptions)
         {
             var mauiApp = CreateMauiApp();
             Services = mauiApp.Services;
@@ -84,7 +84,7 @@ namespace Couchbase.Lite.Tests.Maui
             return true;
         }
 
-        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+        public override bool FinishedLaunching(UIApplication application, NSDictionary? launchOptions)
         {
             var tcs = new TaskCompletionSource();
 

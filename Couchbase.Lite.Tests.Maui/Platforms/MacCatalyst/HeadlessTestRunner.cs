@@ -64,12 +64,12 @@ namespace Couchbase.Lite.Tests.Maui
                 Console.WriteLine(message);
             }
 
-            void OnTestCompleted(object sender, (string name, TestResult result) arg)
+            void OnTestCompleted(object? sender, (string name, TestResult result) arg)
             {
                 Console.WriteLine($"[{arg.result}] {arg.name}");
             }
 
-            void OnTestStarted(object sender, string name)
+            void OnTestStarted(object? sender, string name)
             {
                 Console.WriteLine($"{name} started!");
             }

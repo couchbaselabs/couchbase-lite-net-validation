@@ -13,7 +13,7 @@ public class MauiTestInstrumentation : Instrumentation
     public IServiceProvider Services { get; private set; } = null!;
     readonly TaskCompletionSource<Application> _waitForApplication = new();
 
-    public override void CallApplicationOnCreate(Application app)
+    public override void CallApplicationOnCreate(Application? app)
     {
         base.CallApplicationOnCreate(app);
 
@@ -21,7 +21,7 @@ public class MauiTestInstrumentation : Instrumentation
 			_waitForApplication.SetException(new ArgumentNullException(nameof(app)));
 		else
 		{
-            Couchbase.Lite.Support.Droid.Activate(app.ApplicationContext);
+            Couchbase.Lite.Support.Droid.Activate(app.ApplicationContext!);
 			_waitForApplication.SetResult(app);
 		}
     }
