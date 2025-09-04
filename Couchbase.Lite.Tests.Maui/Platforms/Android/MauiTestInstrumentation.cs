@@ -8,10 +8,11 @@ using Application = Android.App.Application;
 namespace Couchbase.Lite.Tests.Maui;
 
 [Instrumentation(Name = "couchbase.lite.tests.maui.MauiTestInstrumentation")]
-public class MauiTestInstrumentation : Instrumentation
+public class MauiTestInstrumentation(IntPtr handle, JniHandleOwnership transfer) : Instrumentation(handle, transfer)
 {
     public IServiceProvider Services { get; private set; } = null!;
-    readonly TaskCompletionSource<Application> _waitForApplication = new();
+    
+    private readonly TaskCompletionSource<Application> _waitForApplication = new();
 
     public override void CallApplicationOnCreate(Application? app)
     {
@@ -26,13 +27,7 @@ public class MauiTestInstrumentation : Instrumentation
 		}
     }
 
-    public MauiTestInstrumentation(IntPtr handle, JniHandleOwnership transfer)
-        : base(handle, transfer)
-    {
-
-    }
-
-    public override void OnCreate(Bundle arguments)
+    public override void OnCreate(Bundle? arguments)
     {
         base.OnCreate(arguments);
 
@@ -41,17 +36,27 @@ public class MauiTestInstrumentation : Instrumentation
 
     public override async void OnStart()
     {
-        base.OnStart();
+	    try {
+		    base.OnStart();
 
-        await _waitForApplication.Task;
+		    await _waitForApplication.Task;
 
-        Services = MauiApplication.Current.Services;
+		    if (IPlatformApplication.Current == null) {
+			    Android.Util.Log.Error("MauiTestInstrumentation", "OnStart: IPlatformApplication.Current is null");
+			    return;
+		    }
+		    
+		    Services = IPlatformApplication.Current.Services;
 
-        var bundle = await RunTestsAsync();
+		    var bundle = await RunTestsAsync();
 
-		CopyFile(bundle);
+		    CopyFile(bundle);
 
-		Finish(Result.Ok, bundle);
+		    Finish(Result.Ok, bundle);
+	    }
+	    catch (Exception e) {
+		    Android.Util.Log.Error("MauiTestInstrumentation", $"OnStart Exception: {e}");
+	    }
     }
 
     Task<Bundle> RunTestsAsync()

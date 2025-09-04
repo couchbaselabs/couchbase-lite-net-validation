@@ -58,7 +58,7 @@ public class HeadlessTestRunner : AndroidApplicationEntryPoint
 
         return bundle;
 
-        void OnTestsCompleted(object sender, TestRunResult results)
+        void OnTestsCompleted(object? sender, TestRunResult results)
         {
             var message =
                 $"Tests run: {results.ExecutedTests} " +
