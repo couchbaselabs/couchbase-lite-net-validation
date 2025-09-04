@@ -3,6 +3,7 @@
   <PropertyGroup>
     <IsMac>false</IsMac>
     <IsMac Condition=" '$(OS)' == 'Unix' AND Exists('/Library/Frameworks') ">true</IsMac>
+    <DefineConstants>$(DefineConstants);CBL_JUST_BUILT</DefineConstants>
   </PropertyGroup>
   <PropertyGroup>
     <TargetFrameworks>$(DotNetFrameworkVersion);$(ConsoleDotNetVersion)</TargetFrameworks>
@@ -17,7 +18,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DefineConstants>TRACE;CBL_NO_VERSION_CHECK;COUCHBASE_ENTERPRISE;NEEDS_LITECORE_LOAD;</DefineConstants>
+    <DefineConstants>$(DefineConstants);TRACE;COUCHBASE_ENTERPRISE;NEEDS_LITECORE_LOAD;</DefineConstants>
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>
 
@@ -27,7 +28,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DefineConstants>TRACE;CBL_NO_VERSION_CHECK;COUCHBASE_ENTERPRISE;NEEDS_LITECORE_LOAD;</DefineConstants>
+    <DefineConstants>$(DefineConstants);TRACE;COUCHBASE_ENTERPRISE;NEEDS_LITECORE_LOAD;</DefineConstants>
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>
 
@@ -62,6 +63,7 @@
     </PackageReference>
     <PackageReference Condition="'$(TargetFramework)' == '$(DotNetFrameworkVersion)'" Include="IndexRange" Version="1.1.0" />
     <PackageReference Condition="'$(TargetFramework)' == '$(DotNetFrameworkVersion)'" Include="Microsoft.Bcl.HashCode" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8" />
     <PackageReference Condition="'$(TargetFramework)' == '$(DotNetFrameworkVersion)'" Include="Nullable" Version="1.3.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
@@ -75,11 +77,11 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="SerialQueue" Version="2.1.0" />
     <PackageReference Include="Shouldly" Version="4.3.0" />
-    <PackageReference Include="SimpleInjector" Version="5.2.1" />
     <PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
     <PackageReference Include="System.IO.Compression" Version="4.3.0" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
     <PackageReference Include="System.Security.Cryptography.Cng" Version="4.7.0" />
+    <PackageReference Include="System.Text.Json" Version="9.0.8" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
       <PrivateAssets>all</PrivateAssets>

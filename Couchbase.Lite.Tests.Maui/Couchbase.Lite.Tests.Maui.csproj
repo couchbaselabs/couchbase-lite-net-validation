@@ -69,10 +69,10 @@
 
   <!-- Android -->
   <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(PlatformIdentifier)' == 'android'">
-    <DefineConstants>DEBUG;TRACE;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET_ANDROID</DefineConstants>
+    <DefineConstants>$(DefineConstants);DEBUG;TRACE;COUCHBASE_ENTERPRISE</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Packaging' and '$(PlatformIdentifier)' == 'android'">
-    <DefineConstants>TRACE;LITECORE_PACKAGED;NET_ANDROID;COUCHBASE_ENTERPRISE</DefineConstants>
+    <DefineConstants>$(DefineConstants);TRACE;COUCHBASE_ENTERPRISE</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup Condition="$(Configuration.Contains('Debug')) and '$(PlatformIdentifier)' == 'android'">
@@ -84,10 +84,10 @@
   
   <!-- Windows -->
   <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(PlatformIdentifier)' == 'windows'">
-    <DefineConstants>DEBUG;TRACE;NETFX_CORE;NET6_0_WINDOWS10;COUCHBASE_ENTERPRISE</DefineConstants>
+    <DefineConstants>$(DefineConstants);DEBUG;TRACE;COUCHBASE_ENTERPRISE</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Packaging' and '$(PlatformIdentifier)' == 'windows'">
-    <DefineConstants>TRACE;NETFX_CORE;NET6_0_WINDOWS10;COUCHBASE_ENTERPRISE</DefineConstants>
+    <DefineConstants>$(DefineConstants);TRACE;COUCHBASE_ENTERPRISE</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup Condition="$(Configuration.Contains('Debug')) and '$(PlatformIdentifier)' == 'windows'">
@@ -122,7 +122,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
-    <DefineConstants>TRACE;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET_APPLE</DefineConstants>
+    <DefineConstants>$(DefineConstants);TRACE;COUCHBASE_ENTERPRISE;</DefineConstants>
     <CodesignProvision>Automatic</CodesignProvision>
     <EnableCodeSigning>true</EnableCodeSigning>
     <_RequireCodeSigning>false</_RequireCodeSigning>
@@ -135,7 +135,7 @@
     <CodesignProvision>Automatic</CodesignProvision>
     <EnableCodeSigning>true</EnableCodeSigning>
     <_RequireCodeSigning>false</_RequireCodeSigning>
-    <DefineConstants>TRACE;DEBUG;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET_APPLE</DefineConstants>
+    <DefineConstants>$(DefineConstants);TRACE;DEBUG;COUCHBASE_ENTERPRISE</DefineConstants>
   </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)' == 'Packaging' and '$(PlatformIdentifier)' == 'maccatalyst' ">
     <DebugType>pdbonly</DebugType>
@@ -144,7 +144,7 @@
     <CodesignProvision>Automatic</CodesignProvision>
     <EnableCodeSigning>true</EnableCodeSigning>
     <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
-    <DefineConstants>TRACE;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET_APPLE;SANITY_ONLY</DefineConstants>
+    <DefineConstants>$(DefineConstants);COUCHBASE_ENTERPRISE;SANITY_ONLY</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="$(Configuration.Contains('Debug')) and '$(PlatformIdentifier)' == 'maccatalyst' ">
     <DebugSymbols>true</DebugSymbols>
@@ -154,7 +154,7 @@
     <CreatePackage>false</CreatePackage>
     <CodesignProvision>Automatic</CodesignProvision>
     <EnableCodeSigning>true</EnableCodeSigning>
-    <DefineConstants>TRACE;DEBUG;__UNIFIED__;__MOBILE__;__IOS__;LITECORE_PACKAGED;COUCHBASE_ENTERPRISE;NET_APPLE;SANITY_ONLY</DefineConstants>
+    <DefineConstants>$(DefineConstants);TRACE;DEBUG;COUCHBASE_ENTERPRISE;SANITY_ONLY</DefineConstants>
   </PropertyGroup>
   <!-- End Apple -->
   
