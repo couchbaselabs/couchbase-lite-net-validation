@@ -33,8 +33,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Support.NetDesktop\Activate.cs" Link="Activate.cs" />
-    <Compile Include="..\..\..\src\Couchbase.Lite.Enterprise\**\*.cs" />
+    <ProjectReference Include="..\..\..\src\Couchbase.Lite.Enterprise\Couchbase.Lite.Enterprise.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,44 +43,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="..\..\..\src\Couchbase.Lite.Enterprise\obj\**" />
-    <Compile Remove="obj\**" />
-    <EmbeddedResource Remove="obj\**" />
-    <None Remove="obj\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="..\..\..\src\Couchbase.Lite.Enterprise\Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Couchbase.Lite.Extensions" Version="1.0.0" />
-    <PackageReference Include="DerConverter" Version="3.0.0.82" />
-    <PackageReference Include="GitInfo" Version="2.0.20">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Condition="'$(TargetFramework)' == '$(DotNetFrameworkVersion)'" Include="IndexRange" Version="1.1.0" />
-    <PackageReference Condition="'$(TargetFramework)' == '$(DotNetFrameworkVersion)'" Include="Microsoft.Bcl.HashCode" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8" />
-    <PackageReference Condition="'$(TargetFramework)' == '$(DotNetFrameworkVersion)'" Include="Nullable" Version="1.3.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Condition="'$(TargetFramework)' == '$(DotNetFrameworkVersion)'"  Include="PolySharp" Version="1.14.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
-    <PackageReference Include="Microsoft.Win32.Registry" Version="4.5.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-    <PackageReference Include="SerialQueue" Version="2.1.0" />
     <PackageReference Include="Shouldly" Version="4.3.0" />
-    <PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
-    <PackageReference Include="System.IO.Compression" Version="4.3.0" />
-    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
-    <PackageReference Include="System.Security.Cryptography.Cng" Version="4.7.0" />
-    <PackageReference Include="System.Text.Json" Version="9.0.8" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
       <PrivateAssets>all</PrivateAssets>
@@ -89,13 +52,7 @@
     </PackageReference>
     <PackageReference Include="Xunit.SkippableFact" Version="1.4.13" />
   </ItemGroup>
-
-  <Import Project="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Shared\Couchbase.Lite.Shared.projitems" Label="Shared" />
-
   <Import Project="..\..\..\couchbase-lite-net\src\Couchbase.Lite.Tests.Shared\Couchbase.Lite.Tests.Shared.projitems" Label="Shared" />
-
-  <Import Project="..\..\..\couchbase-lite-net\src\LiteCore\src\LiteCore.Shared\LiteCore.Shared.projitems" Label="Shared" />
-
   <ItemGroup Condition=" ('$(OS)' == 'Windows_NT' OR $(Configuration.Contains('Packaging'))) AND '$(JUST_CSHARP)' == '' ">
     <Content Include="$(MSBuildThisFileDirectory)..\..\..\couchbase-lite-net\vendor\prebuilt_core\windows\x86_64\bin\LiteCore.dll">
       <Link>x64\LiteCore.dll</Link>
