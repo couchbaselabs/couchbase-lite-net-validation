@@ -3,34 +3,22 @@
   <PropertyGroup>
     <IsMac>false</IsMac>
     <IsMac Condition=" '$(OS)' == 'Unix' AND Exists('/Library/Frameworks') ">true</IsMac>
-    <DefineConstants>$(DefineConstants);CBL_JUST_BUILT</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup>
-    <TargetFrameworks>$(DotNetFrameworkVersion);$(ConsoleDotNetVersion)</TargetFrameworks>
-
+    <DefineConstants>$(DefineConstants);CBL_JUST_BUILT;TRACE;COUCHBASE_ENTERPRISE;NEEDS_LITECORE_LOAD</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TargetFrameworks>$(ConsoleDotNetVersion)</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);$(DotNetFrameworkVersion)</TargetFrameworks>
     <IsPackable>false</IsPackable>
-
     <AssemblyName>Couchbase.Lite.Validation.NetCore</AssemblyName>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <Nullable>enable</Nullable>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DefineConstants>$(DefineConstants);TRACE;COUCHBASE_ENTERPRISE;NEEDS_LITECORE_LOAD;</DefineConstants>
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>
 
     <PropertyGroup Condition="'$(TargetFramework)' == '$(DotNetFrameworkVersion)'">
         <DefineConstants>$(DefineConstants);SANITY_ONLY</DefineConstants>
     </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DefineConstants>$(DefineConstants);TRACE;COUCHBASE_ENTERPRISE;NEEDS_LITECORE_LOAD;</DefineConstants>
-    <LangVersion>Latest</LangVersion>
-  </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Couchbase.Lite.Enterprise\Couchbase.Lite.Enterprise.csproj" />
